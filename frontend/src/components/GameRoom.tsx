@@ -155,15 +155,11 @@ const GameRoom = ({ gameId, provider, account, onLeaveGame }: GameRoomProps) => 
       setMySecret(gameData.player1.toLowerCase() === account.toLowerCase() ? secret1 : secret2);
       setOpponentSecret(gameData.player1.toLowerCase() === account.toLowerCase() ? secret2 : secret1);
       
-      // Determine winner
-      let winner;
-      if (secret1 > secret2) {
-        winner = gameData.player1;
-      } else if (secret2 > secret1) {
-        winner = gameData.player2;
-      } else {
-        winner = "Tie";
-      }
+      // Determine winner (for future use)
+      const winner = secret1 > secret2 ? gameData.player1 : 
+                    secret2 > secret1 ? gameData.player2 : 
+                    "Tie";
+      console.log("Game winner:", winner);
       
       console.log('✅ Results decrypted successfully');
       // Results will be displayed in the UI below
@@ -259,7 +255,7 @@ const GameRoom = ({ gameId, provider, account, onLeaveGame }: GameRoomProps) => 
                 <p className="text-sm text-gray-600">
                   {gameData.player2 === "0x0000000000000000000000000000000000000000" 
                     ? "Waiting for player..." 
-                    : `${gameData.player2.slice(0, 6)}...${gameData.player2.slice(-4)}`
+                    : (isPlayer2 ? `${gameData.player2.slice(0, 6)}...${gameData.player2.slice(-4)}` : `${opponentAddress.slice(0, 6)}...${opponentAddress.slice(-4)}`)
                   }
                 </p>
                 <div className="flex items-center mt-1">

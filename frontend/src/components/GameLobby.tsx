@@ -76,7 +76,7 @@ const GameLobby = ({ provider, account, onJoinGame }: GameLobbyProps) => {
           }
           
           console.log(`🎯 Game ${i} (1-based):`, game);
-        } catch (gameError) {
+        } catch (gameError: any) {
           console.log(`⚠️ Game ${i} (1-based) not found:`, gameError.message);
         }
       }
