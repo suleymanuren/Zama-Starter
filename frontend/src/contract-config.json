@@ -1,0 +1,20 @@
+{
+  "address": "0x68E752c5Fb0a29319F8dE7637a64E542Dd95eC27",
+  "network": "sepolia",
+  "chainId": 11155111,
+  "deployedAt": "2025-09-22T20:32:02.635Z",
+  "abi": [
+    "function createGame() external returns (uint256 gameId)",
+    "function cancelGame(uint256 gameId) external",
+    "function joinGame(uint256 gameId) external",
+    "function submitSecret(uint256 gameId, uint32 secretNumber) external",
+    "function getGame(uint256 gameId) external view returns (tuple(uint256 gameId, address player1, address player2, uint256 secret1, uint256 secret2, uint256 encryptedSum, bool gameActive, bool gameFinished, bool player1Submitted, bool player2Submitted, uint32 revealedSum, address winner, uint256 createdAt))",
+    "function getEncryptedSum(uint256 gameId) external view returns (uint256)",
+    "function getEncryptedSecret(uint256 gameId, address player) external view returns (uint256)",
+    "function canPlayerJoin(uint256 gameId, address player) external view returns (bool)",
+    "function getActiveGames() external view returns (uint256[] memory)",
+    "function getPlayerActiveGame(address player) external view returns (uint256)",
+    "function gameCounter() external view returns (uint256)",
+    "function MAX_SECRET_NUMBER() external view returns (uint32)"
+  ]
+}
